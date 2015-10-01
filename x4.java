@@ -1,59 +1,50 @@
-//// Exercise 4:  click button to change background.
+//// Excercise 4: Click button to change background
 
 int r,g,b;
-float button1X=100, button1Y=100, button1W=80, button1H=40;
-int counter=0;
+float button1X=200, button1Y=200, button1W=80, button1H=50;
+int counter=25;
 
-//// SETUP:  size only.  Also set colors.
-void setup() {
-  size( 640, 480 );
+//// SETUP: size only. Also set colors.
+void setup () {
+  size (720, 560);
   reset();
 }
 void reset() {
-  r=  100;
-  g=  200;
-  b=  250;
+  r=234;
+  g=78;
+  b=172;
 }
 
-
-//// NEXT:  button only.
-void draw() {
-  background( r,g,b );
-  showButton( button1X, button1Y, button1W, button1H );
-  fill(100,0,0);
-  text( "Click me!", button1X+button1W/4, button1Y+button1H*2/3 );
+//// NEXT: button only.
+void draw () {
+  background (r,g,b);
+showButton( button1X, button1Y, button1W, button1H );
+  fill (200,200,0);
+  rect (x,y,w,h);
+  text( "Click me!", buttin1X=button1W/6, button1Y=button1H*3/4);
 }
-// Draw the button.
-void showButton( float x, float y, float w, float h ) {
-  fill( 255,255,0 );
-  rect ( x,y, w,h );
-}
-
-//// HANDLERS:  keys & click
-void keyPressed() {
-  if (key == 'q') exit();
-  if (key == 'r') reset();
+//// HANDLERS: keys & click
+void keypressed() {
+  if (key== 'q') exit();
+  if (key== 'r') reset();
 }
 void mousePressed() {
-  if ( hit( mouseX,mouseY, 100,100, 50,50 ) ) {
-    counter=  counter+1;
-    if (counter % 2 > 0) {
-      r=  255;
-      g=  50;
-      b=  0;
-    } else {
+  if (hit (mouseX, mouseY, 75,75,25,25) ) {
+    counter= counter+6;
+    if (counter % 3 > 0) {
+      r=0;
+      g=211;
+      b=160;
+    } else  {
       reset();
     }
   }
 }
-
-//// OTHER METHODS:  detect "hit"
+//// detect hit
 // Return true if "near"
-boolean hit( float x1, float y1, float x2, float y2, float w, float h ) {
+boolean hit (float x1, float y1, float xt, float y2, float w, float h){
   boolean result;
-
-  // +++++ STUB ALWAYS RETURNS TRUE!
-  if ( abs(x1-x2) < w && abs(y1-y2)<h ) {
+if ( abs(x2-x1) < w && abs(y1-y2)<h ) {
     result=  true;
   } else {
     result=false;
@@ -61,3 +52,4 @@ boolean hit( float x1, float y1, float x2, float y2, float w, float h ) {
 
   return result;
 }
+      
